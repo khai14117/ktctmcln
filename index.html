@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ôn trắc nghiệm KTCT Mác - Lênin</title>
+<style>
+:root{--bg:#f1f4f7;--card:#fff;--ink:#14202e;--mut:#5d6b7c;--line:#d6dee7;--br:#0d5c63;--on:#fff;--ok:#177a46;--okb:#e2f4e9;--no:#b42318;--nob:#fde9e7;--sel:#dff0f1}
+@media(prefers-color-scheme:dark){:root{--bg:#0f161d;--card:#18222c;--ink:#e8eef4;--mut:#9aa9b9;--line:#2a3846;--br:#4fb3bb;--on:#06262a;--ok:#5fd08f;--okb:#12301f;--no:#ff8f84;--nob:#3a1b18;--sel:#17323a}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-top:env(safe-area-inset-top)}
+.w{max-width:680px;margin:0 auto;padding:16px 16px 110px}
+h1{font-size:24px;line-height:1.25;margin:8px 0 4px}h3{margin:22px 0 8px}
+.mut{color:var(--mut);font-size:14px}a{color:var(--br)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
+.sw{display:flex;gap:10px;align-items:center;padding:8px 0;cursor:pointer}.sw input{width:20px;height:20px;accent-color:var(--br)}
+.b{display:block;width:100%;min-height:48px;margin:10px 0;padding:10px 14px;font:600 16px inherit;font-family:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;cursor:pointer}
+.b.p{background:var(--br);border-color:var(--br);color:var(--on)}.b:disabled{opacity:.4}
+.row{display:flex;gap:10px}.row .b{margin:10px 0}
+input[type=number]{width:84px;min-height:48px;margin:10px 0;font:600 16px inherit;text-align:center;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top));margin-top:calc(-1*env(safe-area-inset-top));background:var(--card);border-bottom:1px solid var(--line)}
+.ic{width:44px;height:44px;font-size:20px;color:var(--ink);background:none;border:0;cursor:pointer}
+.bar{height:4px;background:var(--line)}.bar i{display:block;height:100%;background:var(--br);transition:width .25s}
+.q{font-size:18px;font-weight:600;line-height:1.5;margin:12px 0 16px}
+.o{display:flex;gap:12px;align-items:flex-start;width:100%;min-height:54px;margin:0 0 10px;padding:12px;text-align:left;font:16px/1.45 inherit;font-family:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;cursor:pointer}
+.o:disabled{color:var(--ink);cursor:default}
+.o .l{flex:none;width:28px;height:28px;display:grid;place-items:center;font-weight:700;font-size:14px;border-radius:50%;border:1.5px solid var(--line)}
+.o.sel{background:var(--sel);border-color:var(--br)}.o.sel .l{background:var(--br);color:var(--on);border-color:var(--br)}
+.o.ok{background:var(--okb);border-color:var(--ok)}.o.ok .l{background:var(--ok);color:var(--on);border-color:var(--ok)}
+.o.no{background:var(--nob);border-color:var(--no)}.o.no .l{background:var(--no);color:var(--on);border-color:var(--no)}
+.ex{margin-top:14px;padding:12px 14px;border-radius:10px;border-left:5px solid var(--mut);background:var(--card)}
+.ex.gd{border-color:var(--ok);background:var(--okb)}.ex.bd{border-color:var(--no);background:var(--nob)}.ex p{margin:6px 0 0}.nt{font-size:14px;color:var(--mut);font-style:italic}
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line)}
+.foot .b{margin:0;flex:1;max-width:330px}
+.sc{text-align:center}.big{font-size:56px;font-weight:800;line-height:1.1;color:var(--br)}.big small{font-size:22px;color:var(--mut)}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px}
+.gr button{height:44px;font:600 15px inherit;font-family:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:8px;cursor:pointer}
+.gr .dn{background:var(--sel);border-color:var(--br)}.gr .ok{background:var(--okb);border-color:var(--ok);color:var(--ok)}.gr .no{background:var(--nob);border-color:var(--no);color:var(--no)}
+.gr .cur{outline:3px solid var(--br);outline-offset:1px}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center}
+.pn{width:100%;max-width:680px;max-height:80vh;overflow:auto;background:var(--bg);border-radius:16px 16px 0 0;padding:12px 16px calc(16px + env(safe-area-inset-bottom))}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.lg{font-size:13px;color:var(--mut)}
+</style></head>
+<body><div id="app"></div>
+<script src="data.js"></script>
+<script>
+const L="ABCD",$=s=>document.querySelector(s),app=$("#app");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let used=new Set();try{used=new Set(JSON.parse(localStorage.getItem("ktct_used")||"[]"))}catch(e){}
+const saveUsed=()=>{try{localStorage.setItem("ktct_used",JSON.stringify([...used]))}catch(e){}};
+const cfg={instant:true,shufQ:true,shufO:true};
+let S=null;
+
+function home(){
+  S=null;
+  app.innerHTML=`<div class=w>
+  <h1>Ôn trắc nghiệm KTCT Mác - Lênin</h1>
+  <p class=mut>${Q.length} câu, có giải thích cho từng đáp án.</p>
+  <div class=card>
+    <label class=sw><input type=checkbox id=c1 ${cfg.instant?"checked":""}> Hiện đáp án và giải thích ngay khi chọn</label>
+    <label class=sw><input type=checkbox id=c2 ${cfg.shufQ?"checked":""}> Trộn thứ tự câu hỏi</label>
+    <label class=sw><input type=checkbox id=c3 ${cfg.shufO?"checked":""}> Trộn thứ tự đáp án</label>
+  </div>
+  <button class="b p" onclick="go(Q.length)">Làm cả ${Q.length} câu</button>
+  <div class=row><button class=b onclick="go(30)">Đề ngẫu nhiên 30 câu</button><button class=b onclick="go(40)">Đề ngẫu nhiên 40 câu</button></div>
+  <div class=row><input id=cn type=number inputmode=numeric min=1 max=${Q.length} value=20><button class=b onclick="go(+$('#cn').value)">Đề tự chọn số câu</button></div>
+  <p class=mut>Đề ngẫu nhiên không lặp câu trong đề, và các đề liên tiếp tránh câu đã ra (đã ra ${used.size}/${Q.length} câu). <a href="#" onclick="used.clear();saveUsed();home();return false">Đặt lại</a></p>
+  <p class=mut>Tắt "Hiện đáp án ngay" để thi thử: chọn xong nộp bài mới biết kết quả.</p></div>`;
+}
+function go(n){
+  cfg.instant=$("#c1").checked;cfg.shufQ=$("#c2").checked;cfg.shufO=$("#c3").checked;
+  n=Math.max(1,Math.min(Q.length,n||Q.length));
+  let ids=Q.map((_,i)=>i);
+  if(n<Q.length){let pool=ids.filter(i=>!used.has(i));if(pool.length<n){used.clear();pool=ids}ids=shuf(pool).slice(0,n);ids.forEach(i=>used.add(i));saveUsed()}
+  start(ids);
+}
+function start(ids){
+  ids=cfg.shufQ?shuf(ids):ids.slice().sort((a,b)=>a-b);
+  S={ids,items:ids.map(i=>{const q=Q[i];let o=q.o.map((t,k)=>({t,ok:k===q.a}));if(cfg.shufO&&!q.fix)o=shuf(o);return{q,o}}),ans:ids.map(()=>-1),i:0,done:false};
+  quiz();scrollTo(0,0);
+}
+const shown=i=>S.done||(cfg.instant&&S.ans[i]>=0);
+function expl(it,a){
+  const ok=a>=0&&it.o[a].ok,r=it.o.findIndex(o=>o.ok);
+  return`<div class="ex ${a<0?"":ok?"gd":"bd"}"><b>${a<0?"Bạn chưa chọn":ok?"Chính xác":"Chưa đúng"}. Đáp án đúng: ${L[r]}</b><p>${esc(it.q.e)}</p>${it.q.note?`<p class=nt>${esc(it.q.note)}</p>`:""}</div>`;
+}
+function quiz(){
+  const N=S.items.length,i=S.i,it=S.items[i],a=S.ans[i],sh=shown(i),done=S.ans.filter(x=>x>=0).length;
+  app.innerHTML=`<div class=top><button class=ic onclick="leave()" aria-label="Thoát">✕</button><b>Câu ${i+1}/${N}</b><button class=ic onclick="nav()" aria-label="Bảng điều hướng">▦</button></div>
+  <div class=bar><i style="width:${done/N*100}%"></i></div>
+  <div class=w><p class=q>${esc(it.q.q)}</p>
+  ${it.o.map((o,k)=>{let c="o";if(sh){if(o.ok)c+=" ok";else if(k===a)c+=" no"}else if(k===a)c+=" sel";return`<button class="${c}" ${sh?"disabled":""} onclick="pick(${k})"><span class=l>${L[k]}</span><span>${esc(o.t)}</span></button>`}).join("")}
+  ${sh?expl(it,a):""}</div>
+  <div class=foot><button class=b ${i?"":"disabled"} onclick="mv(-1)">Câu trước</button>
+  ${i<N-1?`<button class="b p" onclick="mv(1)">Câu sau</button>`:S.done?`<button class="b p" onclick="result()">Xem kết quả</button>`:`<button class="b p" onclick="submit()">Nộp bài</button>`}</div><div id=dr></div>`;
+}
+function pick(k){
+  if(!S||S.done||(cfg.instant&&S.ans[S.i]>=0))return;
+  S.ans[S.i]=k;quiz();const e=$(".ex");if(e)e.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+function mv(d){S.i=Math.max(0,Math.min(S.items.length-1,S.i+d));quiz();scrollTo(0,0)}
+function submit(){
+  const u=S.ans.filter(x=>x<0).length;
+  if(u&&!confirm(`Còn ${u} câu chưa làm. Vẫn nộp bài?`))return;
+  S.done=true;result();
+}
+function leave(){S.done?result():confirm("Thoát bài đang làm? Kết quả sẽ không được lưu.")&&home()}
+function grid(){
+  return`<div class=gr>${S.items.map((it,i)=>{let c="";if(shown(i))c=it.o[S.ans[i]]?.ok?"ok":S.ans[i]>=0?"no":"";else if(S.ans[i]>=0)c="dn";if(i===S.i&&$(".q"))c+=" cur";return`<button class="${c}" onclick="jump(${i})">${i+1}</button>`}).join("")}</div>`;
+}
+function nav(){
+  $("#dr").innerHTML=`<div class=sheet onclick="if(event.target===this)this.remove()"><div class=pn><div class=hd><b>Bảng điều hướng</b><button class=ic onclick="this.closest('.sheet').remove()" aria-label="Đóng">✕</button></div>${grid()}<p class=lg>Xanh dương: đã chọn · Xanh lá: đúng · Đỏ: sai · Khung đậm: câu hiện tại</p></div></div>`;
+}
+function jump(i){S.i=i;quiz();scrollTo(0,0)}
+function result(){
+  const N=S.items.length;let c=0,u=0;
+  S.items.forEach((it,i)=>{if(S.ans[i]<0)u++;else if(it.o[S.ans[i]].ok)c++});
+  const sc=+(c/N*10).toFixed(2);S.bad=S.ids.filter((_,i)=>S.ans[i]<0||!S.items[i].o[S.ans[i]].ok);
+  app.innerHTML=`<div class=w><div class="card sc"><div class=big>${sc}<small>/10</small></div><p>Đúng ${c}/${N} câu (${Math.round(c/N*100)}%)</p><p class=mut>Sai ${N-c-u} · Bỏ trống ${u}</p></div>
+  <button class="b p" onclick="S.i=0;quiz();scrollTo(0,0)">Xem lại đáp án và giải thích</button>
+  <button class=b onclick="start(S.ids)">Làm lại bài này</button>
+  ${S.bad.length?`<button class=b onclick="start(S.bad)">Chỉ làm lại ${S.bad.length} câu sai</button>`:""}
+  <button class=b onclick="home()">Về trang chủ</button>
+  <h3>Chọn câu để xem lại</h3>${grid()}</div>`;
+  scrollTo(0,0);
+}
+addEventListener("keydown",e=>{
+  if(!S||!$(".q")||e.ctrlKey||e.metaKey||e.target.tagName==="INPUT")return;
+  const k="abcd".indexOf(e.key.toLowerCase());
+  if(k>=0)pick(k);else if(e.key==="ArrowRight")mv(1);else if(e.key==="ArrowLeft")mv(-1);
+});
+home();
+</script></body></html>
